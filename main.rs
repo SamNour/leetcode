@@ -1,36 +1,16 @@
-use std::collections::HashSet;
-use std::iter::FromIterator;
+use std::cmp;
 
-fn main () {
-	let mut count = 1;
-	let res = vec![0,3,7,2,5,8,4,6,0,1];
-	let hs :HashSet<i32> = HashSet::from_iter(res);
-	println!("{:?}", hs);
-	for i in &hs{
-		let pre = (i + 1).abs();
-		if hs.contains(&pre) {
-			count += 1;
-		}
-
-	}
-	println!("{}", count);
+fn main() {
+    let prices = vec![7, 1, 5, 3, 6, 4];
+	max_profit(prices);
 }
 
-/*
-use std::collections::HashSet;
-use std::iter::FromIterator;
-impl Solution {
-    pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
-    let mut count = 1;
-	let hs :HashSet<i32> = HashSet::from_iter(nums);
-	println!("{:?}", hs);
-	for i in &hs{
-		let pre = (i + 1).abs();
-		if hs.contains(&pre) {
-			count += 1;
-		}
-	}
-    count
-    }
+pub fn max_profit(prices: Vec<i32>) -> i32 {
+	let (mut profit, mut hold) = (0, prices[0]);
+
+	for i in 0..prices.len(){
+		profit = i32::max(profit, prices[i] - hold);
+		hold = i32::min(hold, prices[i]);
+	}  
+	profit
 }
-*/
