@@ -1,0 +1,25 @@
+fn permutations(chars: &mut [char], start: usize){
+	if start == chars.len() {
+		println!("{}", chars.iter().collect::<String>());
+	} else {
+		for i in start..chars.len() {
+			chars.swap(start, i);
+			permutations(chars, start + 1);
+			chars.swap(start, i);
+		}
+	}
+}
+
+fn slice_window (){
+	let s = "abcdefg";
+    let window_size = 3;
+    let mut start = 0;
+    let mut end = window_size;
+
+    while end < s.len() {
+        let window = &s[start..=end];
+        println!("{}", window);
+        start += 1;
+        end += 1;
+    }
+}
