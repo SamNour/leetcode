@@ -13,20 +13,52 @@ impl ListNode {
             val,
         }
     }
-    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut prev = None;
-        let mut option_wrapped_head = head;
 
-        while option_wrapped_head.is_some() {
-            let mut curr_node = option_wrapped_head.unwrap(); // Unwrap to get the inner value
-            let next = curr_node.next.take();
-            curr_node.next = prev.take();
-            prev = Some(curr_node);
-            option_wrapped_head = next;
-        }
+pub fn reverse_list(head: Option<Box<ListNode>>) -> {
+	let mut  prev = None
+	let mut current = head;
+	while current.is_some(){
+		let mut curr_node = current.unwrap();
+		let mut next = curr_node.next.take();
+		curr_node.next = prev.take();
+		prev = Some(curr_node);
+		curr_node = next;
 
-        prev
-    }
+	}
+	prev
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        // let mut prev = None;
+        // let mut option_wrapped_head = head;
+// 
+        // while option_wrapped_head.is_some() {
+            // let mut curr_node = option_wrapped_head.unwrap(); // Unwrap to get the inner value
+            // let next = curr_node.next.take();
+            // curr_node.next = prev.take();
+            // prev = Some(curr_node);
+            // option_wrapped_head = next;
+        // }
+// 
+        // prev
+    // }
 }
 
 fn main() {

@@ -105,7 +105,7 @@ impl LinkedList {
 	}
 
 	fn print_me(&mut self) {
-		let with = self.root.unwrap();
+		let with = self.root.as_mut().unwrap();
 		println!("without = {:#?}", with.val )
 	}
 }
