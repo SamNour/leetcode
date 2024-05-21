@@ -8,7 +8,7 @@
 int main(){
 	
 	std::map<int, int>hm;
-	std::vector<int> vec {0,0};
+	std::vector<int> vec {100,4,200,1,3,2};
 	
 	for (auto i : vec){
 		hm[i];

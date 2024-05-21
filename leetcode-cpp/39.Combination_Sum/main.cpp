@@ -35,8 +35,8 @@ public:
 
     int main() {
     Solution solution;
-    vector<int> candidates = {2, 3, 6, 7};
-    int target = 7;
+    vector<int> candidates = {2,5,2,1,2};
+    int target = 5;
 
     vector<vector<int>> result = solution.combinationSum(candidates, target);
 
