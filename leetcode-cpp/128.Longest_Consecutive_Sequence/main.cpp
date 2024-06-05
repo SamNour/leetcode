@@ -3,27 +3,34 @@
 // else 
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_set>
 
-int main(){
-	
-	std::map<int, int>hm;
-	std::vector<int> vec {100,4,200,1,3,2};
-	
-	for (auto i : vec){
-		hm[i];
-	}
-	int count = 1;
-	int max = 0;
-	for (auto i : vec){
-		while (hm.find(i - 1) != hm.end()){
-			count ++;
-			i--;
-			max = std::max(max, count);
-		} 
-		count = 1;
-		max = std::max(max, count);
-		std::cout << "max :" <<  max << "count : " << count << "\n";
-		}
-	std::cout << max << "\n";
+using namespace std;
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if (nums.size() == 0) return 0;
+        int max {1};
+        // the idea is to find the smallest number in the array
+        unordered_set<int> s(nums.begin(), nums.end());
+        for(auto& num : nums){
+            if (!s.count(num - 1)) {
+                int count = 1;
+				while (s.find(++num) != s.end()){
+					count++;
+                    max = std::max(count, max);
+				} 
+			} 
+        }
+        return max;
+    }
+};
+
+
+int main() {
+    Solution solution;
+    std::vector<int> nums = {100, 4, 200, 1, 3, 2};
+    int result = solution.longestConsecutive(nums);
+    std::cout << "The length of the longest consecutive elements sequence is: " << result << std::endl;
+    return 0;
 }

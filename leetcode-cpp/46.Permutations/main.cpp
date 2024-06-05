@@ -13,7 +13,7 @@ void f( vector<int> &nums, vector<vector<int>> &res, vector<int> &permutations, 
 		if (used[i] == false){
 			used[i] = true;
        		permutations.push_back(nums[i]);
-			f( nums, res, permutations, used);
+			f(nums, res, permutations, used);
 			used[i] = false;
         	permutations.pop_back();
 		}
