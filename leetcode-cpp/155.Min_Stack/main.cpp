@@ -26,13 +26,7 @@ public:
     }
     
     int getMin() {
-        int min = INT_MAX;
-        for (auto& i : stack){
-            if (i < min){
-                min = i;
-            }
-        }
-        return min;
+       return *std::ranges::min_element(stack);
     }
 };
 
@@ -53,3 +47,4 @@ int main() {
 
     return 0;
 }
+
