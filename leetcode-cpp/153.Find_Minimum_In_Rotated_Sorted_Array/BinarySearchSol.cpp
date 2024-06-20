@@ -28,3 +28,4 @@ int findMin(vector<int> &nums) {
   }
   return -1;
 }
+
